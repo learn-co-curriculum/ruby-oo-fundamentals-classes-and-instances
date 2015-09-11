@@ -12,9 +12,26 @@ A. Class definition syntax.
 B. Class as a factory example (new).
 C. Class constructors for primitives like Strings. Show the String class is predefined.
 
+cover
+`class Person; end` the syntax of defining a class. Capital Letters. CamelCase constants for class names. indenting the class body (point out what the class body is)
+
+Person.new - you're calling new on the class - calling a method on an objet, asking the class to give you a new instance.
+
+`Person.new`
+`Dog.new`
+`Baby.new`
+
+assign to variables - leads to - besides bringing them to life, what can you do with an isntance, what is an instance.
+
+
 ## About Instances
 
 3. When a class makes a new individual of itself, we call that thing an instance. fido vs Dog. north_west vs Baby. Each instance has it's own memory and data and classes birth instances. The class is not just a factory for the instance but also a blue print, it defines with instances of it can do. An empty class can do nothing special. But we can add behavoir via methods. And we can even do way more.
+
+look at ruby object notation and explain that - memory address, unique identifiers for this piece of data on your computer.
+
+`person.class` that you can ask an object about the parent class.
+`person.methods` objects respond to methods/messages, they know about themselves, their data and methods.
 
 ## Metaphors and Tangible / Tactile Objects
 
