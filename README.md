@@ -2,24 +2,140 @@
 
 ## Objectives
 
-1. What is a Ruby object?
-2. What is a Ruby class and how does it create objects?
-3. What is a Ruby instance?
+1. What is a Ruby class and how does it create objects?
+2. What is a Ruby instance?
+3. Deeper dive into classes and objects.
 
-## Ruby Objects Represent Real Objects
+## Defining a Class
 
-Let's begin with a brief experiment. Open up IRB and execute the following code:
+Let's say we are building a dog walking app. Our app's users might be dog walkers and dog owners and they can use the app to manage the dog walks. Such an app would need to store information about a potentially large number of dogs. So, our program needs to have a way to bundle up and operate on all the information about a particular dog. And, our program needs to be able to do this again and again. And, once more, we'll need our program to be able to create *new* bundles of information regarding individual dogs every time a new dog is added to the app. 
+
+How can we tell our Ruby program to deal with these dogs? Well, we can write a `Dog` class that produces individual dog objects, each of which contains all the information and behaviors of an individual dog. 
+
+Let's do it!
 
 ```ruby
-greeting = "hi"
-greeting === "hi"
-```	
+class Dog
+  # some code to describe a dog
+end
+```
 
-The return value of that second line of code should be `false`. What? (you might be wondering.) Didn't we *just* set the `greeting` variable equal to the string `"hi"`? So why is that equality operator returning `false` when we compare `greeting` to a string, `"hi"`? 
+The `Dog` class is defined with the `class` keyword, followed by the class name and closed with an `end`. 
 
-Well, the string `"hi"` that `greeting` points to is a *different object* entirely. 
+Class names begin with capital letters. If your class name contains two words, the name should be camel cased, like this: 
 
-### What is an Object?
+```ruby
+class MyClass
+	# some code all about your awesome class
+end
+```
+
+Our `Dog` class will include a series of methods that describe the behaviors and attributes of an individual dog. Then, we can use the `Dog` class to create new dog entities, or objects. 
+
+Let's write some code to give our dogs the ability to bark:
+
+```ruby
+class Dog
+	def bark
+		"Woof!"
+	end
+end
+```
+
+Now, every dog that we make using the `Dog` class will be able to have the `#bark` method called on it. 
+
+## Instances of a Class
+
+The word **instance** refers to the individual objects produced from the blueprint of a class. 
+
+We can use our `Dog` class to create individual dogs. The individual dogs will share a set of similar attributes that are defined in the `Dog` class. But, each individual dog will have unique values for those attributes. 
+
+How do we make instances of the `Dog` class? Read on...
+
+### Creating Instances of a Class
+
+So, we have our `Dog` class here:
+
+```ruby
+class Dog
+	def bark
+		"Woof!"
+	end
+end
+```
+
+It is the blueprint for creating individual dogs. Let's create some individual dogs, or *dog instances*. 
+
+```ruby
+fido = Dog.new
+	=>#<Dog:0x007fa764a2b5a8> 
+```
+
+To **instantiate**, or create, a new instance of a class, we use the `#new` method, calling it on the class itself. 
+
+Notice that the return value of calling the `#new` method is the new dog instance, or *object*, that we've just created. The string of letters and numbers is it's **object ID**. 
+
+Notice that, above, we've set a variable, `fido`, equal to the result of `Dog.new`. What we've done here is set a variable equal to our instance of the `Dog` class, our dog object. Now we can operate on that dog instance by calling the methods we defined in the `Dog` class on the `fido` variable that points to it. 
+
+### Operating on Instances of a Class
+
+In basic Ruby, we learned to define methods that do things. For example:
+
+```ruby
+def hello_world
+	puts "hello world"
+end
+```
+
+Methods, however, operate on *objects*. The classes that we will learn to build produce objects, and we can define methods inside of those classes that can then be called on the instances, or objects, that the classes will produce. 
+
+Our `Dog` class has one method, `#bark`, that can be called on any instance of that class. This method is therefore called an **instance method**. 
+
+Let's play with our dog instance, Fido:
+
+```ruby
+fido.bark
+  => "Woof!"
+```
+
+Objects respond to the methods that are called on them. When we call `fido.bark`, we are asking the instance of `Dog` to invoke the `#bark` method, the return value of which is the string `"Woof!"`
+
+This is what is meant by the idea that object oriented programming creates living entities, made out of code. The objects we create respond to the questions we ask, by way of the methods we define in a class. They enact behaviors and talk back to you, the programmer. 
+
+## Different Instances are Different Objects
+
+Let's make another dog:
+
+```ruby
+snoopy = Dog.new
+  => #<Dog:0x007fa764a224f8>
+```
+We can learn more about the objects we've created by using some handy tricks:
+
+* The `#class` method can be called on an instance to learn the name of the class that produced it. 
+* The `#inspect` method can be called on an instance of a class and will return the object's class name and object ID as a string. 
+* The `#methods` method can be called on an instance of a class and will return all of the methods that are available to be called on that instance. 
+
+Let's `#inspect` our two `Dog` instances. 
+
+```ruby
+fido.inspect
+  =>"#<Dog:0x007fa764a2b5a8>" 
+snoopy.inspect
+  =>"#<Dog:0x007fa764a224f8>"
+```
+
+Notice that the two different instances of the `Dog` class have totally different object IDs. They are two different objects that live in two different locations in the memory of our computer. They are very similar in many ways. For example, they will both respond to the `#bark` method. This is because they were both produced from the `Dog` class. They were made using the blueprint provided by the code in that class. But, Snoopy is not Fido. Our two `Dog` instances are totally unique, different dogs. 
+
+## Understanding Class
+
+Think of a class like a factory that produces products on an assembly line. The factory produces a fleet of similar products, all based off of the same blueprint. A Ruby class is both the factory and the blueprint––it contains the instructions for creating new objects and it has the ability to create those objects.
+
+So, in our current example, we have a `Dog` class that is capable of producing an infinite number of dogs. All of the dogs that our class produces will have the ability to bark. However, just like `fido` is not the same object as `snoopy`, the individual objects created by a class are just that––individual objects. 
+
+This is how a Ruby class works. It contains code that acts as the "blueprint" for producing a fleet of *similar*, but unique, objects, as well as code to actually create each individual new object, or class instance.
+
+## Understanding Objects
 
 According to Miriam Webster, an object is
 
@@ -39,19 +155,7 @@ And these are only a few examples of reading and manipulating the `"hi"` object.
 
 So, in fact, `"hi"`, is a bundle of data and behaviors that both see and touch, i.e. operate on. 
 
-## Classes and Instances
-
-In object oriented programming, objects are created by making new instances of a class. 
-
-### What's a Class?
-
-Think of a class like a factory that produces products on an assembly line. The factory produces a fleet of similar products, all based off of the same blueprint. A Ruby class is both the factory and the blueprint––it contains the instructions for creating new objects and it has the ability to create those objects. 
-
-Let's say we have a toy factory that produces thousands of toy cars. All of the toy cars have four wheels and the same shape. All of the toy cars can be wheeled around when kids play with them. If the factory produces two blue toy cars using it's toy car blueprint, the two toys will look alike and function in the same way, but they are still two different toys, two different objects. 
-
-This is how a Ruby class works. It contains code that acts as the "blueprint" for producing a fleet of similar objects, as well as code for creating each individual new object, also called an *instance* of a class. 
-
-#### Philosophy Break
+### Philosophy Break
 
 Think of a class as an abstraction of all of the characteristics and behaviors that make up an individual object of a certain type. A class then produces these individual objects using the model provided by this abstract bundle of characteristics. 
 
@@ -68,11 +172,15 @@ A class (or a "form) is an archetype––a Toy class that produces individual t
 <br>
 For Plato, all of the objects of the material world were seen as copies of an ideal form which provided their mold. So, as object oriented programmers who define the forms and create their copies, we are really building up the very reality with which we interact. 
 
-### Creating Instances of a Class
+### Some Classes Already Exist
 
-Let's return, once again, to our example from earlier. Now we can understand that the string, `"hi"`, that the `greeting` variable refers to, and the second string, `"hi"`, are *two different instances of the String class*. Just like the two different, but identical, blue toy cars made from the same blueprint. 
+Let's return to our String example from earlier. Now we understand the `"hi"` is an object. It is also an instance of a class that is already defined in the Ruby language––the String class. 
 
-Let's take a closer look:
+Every time you create a new string by simply typing something like:
+
+```ruby
+"this is my new string"
+```
 
 The Ruby core library contains code that looks something like this: 
 
@@ -82,10 +190,12 @@ class String
 	def length
 		# the code that gives this method it's functionality
 	end
+	
+	etc...
 end
 ```
 
-The String class is pre-defined for us. So, every time we create a string, by typing `"some stuff"`, we are creating a *new instance of the String class*.  
+So, the below code to create a new string that contains the characters `h` and `i`,  
 
 ```ruby
 "hi"
@@ -99,112 +209,11 @@ String.new("hi")
 ```
 Both of the code snippets above create a new instance of the String class. The first method of creating, or *instantiating*, a new string is called the **literal constructor**. The second method is called the **class constructor**. 
 
-### Writing Our Own Class
+**Advanced:** You might notice that the `#new` method we are calling on the String class appears to be taking in an argument. We'll learn more about instantiating objects via `#new` and something called the `#initialize` method in an upcoming lesson.
 
-We've seen that some classes come pre-defined, like the String class. Let's define our own class using the toy example from above to help us get familiar with the syntax of building classes and instantiating objects. 
-
-#### Defining a Class
-
-A class is defined with the following: 
-
-```ruby
-class Toy
-	# this called the class body, it's where you define the methods that you want to give your class and it's instances. 
-end
-```
-
-Class names begin with capital letters. If your class name contains two words, the name should be camel cased, like this: 
-
-```ruby
-class MyClass
-
-end
-```
-
-#### Creating Instances with the `#new` Method
-
-When a class makes a new individual object using it's blueprint, we call that object an **instance of the class the produced it**. To instantiate a new instance of a class, we use the `#new` method, calling it on the class itself. Let's give that a shot on the `Toy` class we've just defined. 
-
-```ruby
-Toy.new
-  => #<Toy:0x007fe88934ec88> 
-```
-Notice that the return value of the `#new` methods it the new toy instance, or *object*, that we've just created. The string of letters and numbers is it's object ID. 
-
-#### Operating on Instances of a Class
-
-In basic Ruby, we learned to define methods that do things. For example:
-
-```ruby
-def hello_world
-	puts "hello world"
-end
-```
-
-Methods, however, operate on *objects*. The classes that we will learn to build produce objects, and we can define methods inside of those classes that can then be called on the instances that the classes will produce. 
-
-Let's give our `Toy` class some methods before we move on. That way we'll have something to play around with. 
-
-```ruby
-class Toy
-
-	def number_of_wheels
-		4
-	end
-	
-	def play_with_toy
-		puts "VROOOOOM!"
-	end
-```
-
-Okay, now we're ready to create a new `Toy` instance. 
-
-```ruby
-toy_car = Toy.new
-```
-
-Notice that we've set a variable, `toy_car`, equal to the result of `Toy.new`. What we've done here is set a variable equal to our instance of the `Toy` class, our toy object. Now we can operate on that toy instance by calling it's various methods on the `toy_car` variables that points to it. 
-
-Let's play with our new toy car:
-
-```ruby
-toy_car.number_of_wheels
-  => 4
-toy_car.play_with_toy
-	=> "VROOOOOM!"
-```
-
-Objects respond to the methods that are called on them. When we call `toy_car.number_of_wheels`, we are asking the instance of `Toy` how many wheels it has and it is responding with `4`, the return value of that particular method. 
-
-This is what is meant by the idea that object oriented programming creates living entities, made out of code. The objects we create respond to the questions we ask, by way of the methods we define in a class. They enact behaviors and talk back to you, the programmer. 
-
-#### Different Instances are Different Objects
-
-Let's make another toy car:
-
-```ruby
-second_toy_car = Toy.new
-	=> #<Toy:0x007fe88933e7e8> 
-```
-We can learn more about the objects we've created by using some handy tricks:
-
-* The `#class` method can be called on an instance to learn the name of the class that produced it. 
-* The `#inspect` method can be called on an instance of a class and will return the object's class name and object ID as a string. 
-* The `#methods` method can be called on an instance of a class and will return all of the methods that are available to be called on that instance. 
-
-Let's `#inspect` our two `Toy` instances. 
-
-```ruby
-toy_car.inspect
-  =>"#<Toy:0x007fe88934ec88>" 
-second_toy_car.inspect
-  =>"#<Toy:0x007fe88933e7e8>"
-```
-
-Notice that the two different instances of the `Toy` class have totally different object IDs. They are two different object that live in two different locations in the memory of our computer. 
 
 ## Conclusion: Objects as Metaphors
  
-In object oriented programming, we treat our objects as representatives of real-world objects. We strive to write code that mirrors real-world environments and situations because we understand that our code is written to solve real-world problems. If you're writing a program to play a game of tic tac toe, your code should mirror the real, solid, tangible elements of a game of tic tac toe. You should create a "board" object and a "player" object.
+In object oriented programming, we treat our objects as representatives of real-world objects. We strive to write code that mirrors real-world environments and situations because we understand that our code is written to solve real-world problems. Our dog walking app is an example of this. Another example––if you're writing a program to play a game of tic tac toe, your code should mirror the real, solid, tangible elements of a game of tic tac toe. You could create a "board" class and a "player" class, which produce board and player objects respectively.
 
 As we take a deeper dive into object orientation, we'll see that entire applications will be modeled on real-world situations and environments and we'll come to understand our code as a concrete, living entity that programmers and users can interact with. 
