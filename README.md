@@ -101,7 +101,3 @@ snoopy == fido #=> false - these dogs are not the same.
 ```
 
 Classes are factories for our objects. They let us manufacture and instantiate new instances.
-
-## Conclusion: Objects as Metaphors
-
-In object oriented programming, we treat our objects as representatives of real-world objects. We strive to write code that mirrors real-world environments and situations because we understand that our code is written to solve real-world problems.
