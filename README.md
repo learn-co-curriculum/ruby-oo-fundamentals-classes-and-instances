@@ -2,9 +2,9 @@
 
 ## Objectives
 
-1. What is a Ruby class and how does it create objects?
-2. What is a Ruby instance?
-3. Deeper dive into classes and objects.
+1. Describe a Ruby class and how it creates objects
+2. Describe a Ruby instance 
+3. Create an instance of a class
 
 ## Defining a Class
 
@@ -14,7 +14,9 @@ Our program needs to have a way to bundle up and operate on all the information 
 
 How can we tell our Ruby program to deal with these dogs? Well, we can write a `Dog` class that produces individual dog objects, each of which contains all the information and behaviors of an individual dog.
 
-Let's do it!
+Think of a class like a factory that produces products on an assembly line. The factory produces a fleet of similar products, all based off of the same blueprint. A Ruby class is both the factory and the blueprint - it contains the instructions for creating new objects and it has the ability to create those objects.
+
+Here's what our `Dog` class would look like:
 
 ```ruby
 class Dog
@@ -44,7 +46,7 @@ fido = Dog.new
 fido #=> #<Dog:0x007fc52c2d7d20>
 ```
 
-In the code sample above, once we've defined our `Dog` class with the `class` keyword, we immediately can bring to life new individual dog, the variable `fido`.
+In the code sample above, once we've defined our `Dog` class with the `class` keyword, we immediately can bring to life new individual dogs, the variable `fido` which points to a new instance of a dog.
 
 On the `Dog` class, we call the `.new` method and that will **instantiate** a new dog.
 
