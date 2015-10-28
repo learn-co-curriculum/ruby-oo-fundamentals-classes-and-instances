@@ -24,7 +24,7 @@ class Dog
 end
 ```
 
-The `Dog` class is defined with the `class` keyword, followed by the class name and closed with an `end`.
+The `Dog` class is defined with the `class` keyword, followed by the class name and closed with an `end`. "The body of this class is between the `class` and `end` keywords.  
 
 Class names begin with capital letters because they are stored in Ruby constants. If your class name contains two words, the name should be CamelCased, like this:
 
