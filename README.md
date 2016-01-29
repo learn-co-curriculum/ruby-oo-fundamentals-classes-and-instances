@@ -104,4 +104,4 @@ snoopy == fido #=> false - these dogs are not the same.
 
 Classes are factories for our objects. They let us manufacture and instantiate new instances.
 
-<a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances' title='Classes And Instances'>Classes And Instances</a> on Learn.co and start learning to code for free.</p>
