@@ -24,7 +24,7 @@ class Dog
 end
 ```
 
-The `Dog` class is defined with the `class` keyword, followed by the class name and closed with an `end`. "The body of this class is between the `class` and `end` keywords.  
+The `Dog` class is defined with the `class` keyword, followed by the class name and closed with an `end`. The body of this class is between the `class` and `end` keywords.  
 
 Class names begin with capital letters because they are stored in Ruby constants. If your class name contains two words, the name should be CamelCased, like this:
 
@@ -104,4 +104,6 @@ snoopy == fido #=> false - these dogs are not the same.
 
 Classes are factories for our objects. They let us manufacture and instantiate new instances.
 
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances' title='Classes And Instances'>Classes And Instances</a> on Learn.co and start learning to code for free.</p>
+<a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances' data-visibility='hidden'>View this lesson on Learn.co</a>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances'>Intro to Classes and Instances</a> on Learn.co and start learning to code for free.</p>
