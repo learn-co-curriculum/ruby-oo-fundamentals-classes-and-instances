@@ -85,7 +85,7 @@ lassie = Dog.new
 lassie #=> #<Dog:0x007fc52c2cc588>
 ```
 
-Notice that every time you make an instance of a class, Ruby tells you that the return value is something that looks like `#<Dog:0x007fc52c2cc588>`. This syntax is called Ruby Object Notation and it's just the default way that Ruby communicates to you that you are dealing with an object or instance of a particular class. The `Dog:0x007fc52c2cc588` tells you that the object is an instance of `Dog` and the `0x007fc52c2cc588` is called it's object identifier and it basically means this is where the object lives inside your computer.
+Notice that every time you make an instance of a class, Ruby tells you that the return value is something that looks like `#<Dog:0x007fc52c2cc588>`. This syntax is called Ruby Object Notation and it's just the default way that Ruby communicates to you that you are dealing with an object or instance of a particular class. The `Dog:0x007fc52c2cc588` tells you that the object is an instance of `Dog` and the `0x007fc52c2cc588` is called its object identifier and it basically means this is where the object lives inside your computer.
 
 Each of these instances are totally unique, even though they are all born from `Dog`.
 
@@ -107,3 +107,5 @@ Classes are factories for our objects. They let us manufacture and instantiate n
 <a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances' data-visibility='hidden'>View this lesson on Learn.co</a>
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances'>Intro to Classes and Instances</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances'>Classes and Instances</a> on Learn.co and start learning to code for free.</p>
