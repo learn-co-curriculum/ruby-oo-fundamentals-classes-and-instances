@@ -14,7 +14,7 @@ Our program needs to have a way to bundle up and operate on all the information 
 
 How can we tell our Ruby program to deal with these dogs? Well, we can write a `Dog` class that produces individual dog objects, each of which contains all the information and behaviors of an individual dog.
 
-Think of a class like a factory that produces products on an assembly line. The factory produces a fleet of similar products, all based off of the same blueprint. A Ruby class is both the factory and the blueprint - it contains the instructions for creating new objects and it has the ability to create those objects.
+Think of a class like the blueprint that defines how to build an object.  The `Dog` class is different from an individual dog just as the blueprints that show how to build a house are not the actual house. A Ruby class both contains the instrucions for creating new objects and has the ability to create those objects. It acts like an assembly line which produces a series of individual dog objects all based off the same template. 
 
 Here's what our `Dog` class would look like:
 
@@ -52,7 +52,7 @@ On the `Dog` class, we call the `.new` method and that will **instantiate** a ne
 
 **Instantiate** means bringing a new object to life, a new individual, like a particular dog, like Snoopy or Lassie or Rover. Each particular dog is an individual that was **instantiated** when we called `Dog.new` to birth it into our world of programming.
 
-We call these individuals, each specific dog or version of our class, **instances**. An **instance** is a single occurrence of an object. **Instances** refer to the individual objects produced from the factory that is the class.
+We call these individuals, each specific dog or version of our class, **instances**. An **instance** is a single occurrence of an object. **Instances** refer to the individual objects produced from the class.
 
 ```ruby
 class Dog
@@ -102,7 +102,7 @@ snoopy #=> #<Dog:0x007fc52c2d4170>
 snoopy == fido #=> false - these dogs are not the same.
 ```
 
-Classes are factories for our objects. They let us manufacture and instantiate new instances.
+Classes are the blueprints that define the behavior and information our objects will contain. They let us manufacture and instantiate new instances.
 
 <a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances' data-visibility='hidden'>View this lesson on Learn.co</a>
 
