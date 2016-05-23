@@ -14,7 +14,9 @@ Our program needs to have a way to bundle up and operate on all the information 
 
 How can we tell our Ruby program to deal with these dogs? Well, we can write a `Dog` class that produces individual dog objects, each of which contains all the information and behaviors of an individual dog.
 
-Think of a class like the blueprint that defines how to build an object.  The `Dog` class is different from an individual dog just as the blueprints that show how to build a house are not the actual house. A Ruby class both contains the instrucions for creating new objects and has the ability to create those objects. It acts like an assembly line which produces a series of individual dog objects all based off the same template. 
+Think of a class like the blueprint that defines how to build an object.  The `Dog` class is different from an individual dog just as the blueprints that show how to build a house are not the actual house. A Ruby class both contains the instructions for creating new objects and has the ability to create those objects. Calling `.new` on the `Dog` class is like getting a brand new dog object from an assembly line which produces a series of similar dog objects based on the same `Dog` template. 
+
+
 
 Here's what our `Dog` class would look like:
 
