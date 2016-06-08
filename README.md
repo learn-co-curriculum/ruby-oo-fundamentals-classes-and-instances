@@ -106,8 +106,4 @@ snoopy == fido #=> false - these dogs are not the same.
 
 Classes are the blueprints that define the behavior and information our objects will contain. They let us manufacture and instantiate new instances.
 
-<a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances' data-visibility='hidden'>View this lesson on Learn.co</a>
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances'>Intro to Classes and Instances</a> on Learn.co and start learning to code for free.</p>
-
 <p class='util--hide'>View <a href='https://learn.co/lessons/ruby-intro-to-classes-and-instances'>Classes and Instances</a> on Learn.co and start learning to code for free.</p>
