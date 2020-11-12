@@ -1,4 +1,4 @@
-# Classes And Instances
+# Classes and Instances
 
 ## Learning Goals
 
